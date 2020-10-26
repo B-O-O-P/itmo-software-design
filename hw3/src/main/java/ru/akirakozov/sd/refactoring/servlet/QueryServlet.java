@@ -1,12 +1,12 @@
 package ru.akirakozov.sd.refactoring.servlet;
 
+import ru.akirakozov.sd.refactoring.dao.ProductDAO;
+import ru.akirakozov.sd.refactoring.models.Product;
+
 import java.io.PrintWriter;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import ru.akirakozov.sd.refactoring.dao.ProductDAO;
-import ru.akirakozov.sd.refactoring.models.Product;
 
 /**
  * @author akirakozov
