@@ -22,6 +22,11 @@ public class OperationToken implements Token {
     }
 
     @Override
+    public TokenType getTokenType() {
+        return operationType;
+    }
+
+    @Override
     public String toString() {
         return operationType.toString();
     }

@@ -22,6 +22,11 @@ public class BraceToken implements Token {
     }
 
     @Override
+    public TokenType getTokenType() {
+        return braceType;
+    }
+
+    @Override
     public String toString() {
         return braceType.toString();
     }

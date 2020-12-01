@@ -4,4 +4,6 @@ import ru.itmo.chizhikov.visitor.TokenVisitor;
 
 public interface Token {
     void accept(TokenVisitor visitor);
+
+    TokenType getTokenType();
 }
