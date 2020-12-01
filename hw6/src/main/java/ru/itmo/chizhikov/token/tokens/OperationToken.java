@@ -16,6 +16,22 @@ import ru.itmo.chizhikov.visitor.TokenVisitor;
 public class OperationToken implements Token {
     private final TokenType operationType;
 
+    public int evaluate(int a, int b) {
+        if (operationType.equals(TokenType.PLUS)) {
+            return a + b;
+        }
+        if (operationType.equals(TokenType.MINUS)) {
+            return a - b;
+        }
+        if (operationType.equals(TokenType.MUL)) {
+            return a * b;
+        }
+        if (operationType.equals(TokenType.DIV)) {
+            return a / b;
+        }
+        throw new IllegalStateException();
+    }
+
     @Override
     public void accept(TokenVisitor visitor) {
         visitor.visit(this);
