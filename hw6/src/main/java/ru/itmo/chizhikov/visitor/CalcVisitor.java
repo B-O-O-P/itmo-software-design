@@ -3,13 +3,14 @@ package ru.itmo.chizhikov.visitor;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
+
 import ru.itmo.chizhikov.token.Token;
 import ru.itmo.chizhikov.token.tokens.BraceToken;
 import ru.itmo.chizhikov.token.tokens.NumberToken;
 import ru.itmo.chizhikov.token.tokens.OperationToken;
 
 public class CalcVisitor implements TokenVisitor {
-    private final Deque<Integer> stack = new ArrayDeque<>();
+    private final ArrayDeque<Integer> stack = new ArrayDeque<>();
 
     public int calculate(List<Token> tokens) {
         if (tokens.isEmpty()) {
@@ -19,7 +20,7 @@ public class CalcVisitor implements TokenVisitor {
         tokens.forEach(token -> token.accept(this));
 
         if (stack.size() != 1) {
-            throw new IllegalStateException("Invalid tokens sequence");
+            throw new IllegalStateException("Invalid sequence of tokens");
         }
 
         return stack.pollLast();

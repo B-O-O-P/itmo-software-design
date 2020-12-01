@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
+
 import ru.itmo.chizhikov.token.Token;
 import ru.itmo.chizhikov.token.TokenType;
 import ru.itmo.chizhikov.token.tokens.BraceToken;
@@ -50,6 +51,7 @@ public class ParserVisitor implements TokenVisitor {
     public void visit(OperationToken token) {
         if (!stack.isEmpty()) {
             Token nextToken = stack.peekLast();
+
             while (!stack.isEmpty() && token.getTokenType().getPriority() <= nextToken.getTokenType().getPriority()) {
                 rpnTokens.add(stack.pollLast());
                 nextToken = stack.peekLast();

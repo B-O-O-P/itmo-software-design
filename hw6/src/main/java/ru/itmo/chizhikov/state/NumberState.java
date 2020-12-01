@@ -22,7 +22,7 @@ public class NumberState implements State {
         } else if (tokenizer.isOperationOrBrace()) {
             tokenizer.setState(new StartState());
         } else {
-            tokenizer.setState(new ErrorState("Unexpected symbol : " + tokenizer.getCurrentCharacter()));
+            tokenizer.setState(new ErrorState("Unexpected character: " + tokenizer.getCurrentCharacter()));
         }
     }
 }

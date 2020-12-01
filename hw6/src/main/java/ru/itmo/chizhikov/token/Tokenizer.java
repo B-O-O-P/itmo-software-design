@@ -3,8 +3,10 @@ package ru.itmo.chizhikov.token;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
+
 import ru.itmo.chizhikov.state.EndState;
 import ru.itmo.chizhikov.state.ErrorState;
 import ru.itmo.chizhikov.state.StartState;
@@ -13,6 +15,7 @@ import ru.itmo.chizhikov.state.State;
 @Getter
 @Setter
 public class Tokenizer {
+    private String OPERATION_SYMBOLS = "+-*/()";
     private String input;
     private int curIndex;
     private State state;
@@ -53,7 +56,7 @@ public class Tokenizer {
     }
 
     public boolean isOperationOrBrace() {
-        String availableSymbols = "+-*/()";
+        String availableSymbols = OPERATION_SYMBOLS;
         return availableSymbols.indexOf(getCurrentCharacter()) >= 0;
     }
 

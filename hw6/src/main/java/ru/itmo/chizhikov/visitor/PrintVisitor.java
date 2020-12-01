@@ -11,6 +11,7 @@ public class PrintVisitor implements TokenVisitor {
 
     public String print(List<Token> tokens) {
         tokens.forEach(token -> token.accept(this));
+
         String result = builder.toString();
         builder = new StringBuilder();
         return result;
