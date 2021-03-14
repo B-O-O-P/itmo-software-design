@@ -1,4 +1,4 @@
-package ru.itmo.chizhikov.model;
+package model;
 
 import org.bson.Document;
 
