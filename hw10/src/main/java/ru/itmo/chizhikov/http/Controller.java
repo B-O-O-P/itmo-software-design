@@ -1,4 +1,4 @@
-package http;
+package ru.itmo.chizhikov.http;
 
 import io.reactivex.netty.protocol.http.server.HttpServerRequest;
 import rx.Observable;

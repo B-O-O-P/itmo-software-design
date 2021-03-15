@@ -1,6 +1,6 @@
-import dao.Utils;
-import http.Controller;
-import http.RxController;
+import ru.itmo.chizhikov.dao.Utils;
+import ru.itmo.chizhikov.http.Controller;
+import ru.itmo.chizhikov.http.RxController;
 import io.reactivex.netty.protocol.http.server.HttpServer;
 import rx.Observable;
 

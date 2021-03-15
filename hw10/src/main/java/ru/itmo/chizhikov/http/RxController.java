@@ -1,10 +1,10 @@
-package http;
+package ru.itmo.chizhikov.http;
 
-import dao.Reactive;
+import ru.itmo.chizhikov.dao.Reactive;
 import io.reactivex.netty.protocol.http.server.HttpServerRequest;
-import model.Currency;
-import model.Product;
-import model.User;
+import ru.itmo.chizhikov.model.Currency;
+import ru.itmo.chizhikov.model.Product;
+import ru.itmo.chizhikov.model.User;
 import rx.Observable;
 
 public class RxController implements Controller {

@@ -1,15 +1,15 @@
-package dao;
+package ru.itmo.chizhikov.dao;
 
 import com.mongodb.rx.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 
 import org.bson.Document;
 
+import ru.itmo.chizhikov.model.Currency;
+import ru.itmo.chizhikov.model.Product;
 import rx.Observable;
 
-import model.Product;
-import model.Currency;
-import model.User;
+import ru.itmo.chizhikov.model.User;
 
 public class MongoDB implements Reactive {
     private final MongoCollection<Document> users;

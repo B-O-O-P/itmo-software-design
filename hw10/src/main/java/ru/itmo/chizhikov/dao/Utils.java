@@ -1,4 +1,4 @@
-package dao;
+package ru.itmo.chizhikov.dao;
 
 import com.mongodb.rx.client.MongoClient;
 import com.mongodb.rx.client.MongoClients;

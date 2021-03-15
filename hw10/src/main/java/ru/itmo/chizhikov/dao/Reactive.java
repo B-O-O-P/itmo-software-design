@@ -1,8 +1,7 @@
-package dao;
+package ru.itmo.chizhikov.dao;
+import ru.itmo.chizhikov.model.Product;
+import ru.itmo.chizhikov.model.User;
 import rx.Observable;
-
-import model.Product;
-import model.User;
 
 public interface Reactive {
     Observable<Boolean> registerUser(User user);

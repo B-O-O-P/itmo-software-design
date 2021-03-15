@@ -1,4 +1,4 @@
-package model;
+package ru.itmo.chizhikov.model;
 
 public enum Currency {
     USD,
