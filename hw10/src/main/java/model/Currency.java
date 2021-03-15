@@ -5,7 +5,7 @@ public enum Currency {
     EUR,
     RUB;
 
-    private double getMultiplier() {
+    private double getCourse() {
         switch (this) {
             case EUR:
                 return 0.84;
@@ -16,7 +16,7 @@ public enum Currency {
         }
     }
 
-    public double getMultiplier(Currency otherCurrency) {
-        return otherCurrency.getMultiplier() / getMultiplier();
+    public double getCourse(Currency otherCurrency) {
+        return otherCurrency.getCourse() / getCourse();
     }
 }

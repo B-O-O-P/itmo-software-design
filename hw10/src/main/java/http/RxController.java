@@ -63,5 +63,4 @@ public class RxController implements Controller {
     private <T> Observable<String> getUsers(HttpServerRequest<T> request) {
         return db.getUsers().map(Object::toString);
     }
-
 }

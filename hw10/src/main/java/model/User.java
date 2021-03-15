@@ -1,7 +1,12 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import org.bson.Document;
 
+@Data
+@AllArgsConstructor
 public class User {
     private final long id;
     private final String login;
@@ -15,29 +20,11 @@ public class User {
         );
     }
 
-    public User(long id, String login, Currency currency) {
-        this.id = id;
-        this.login = login;
-        this.currency = currency;
-    }
-
     public Document toDocument() {
         return new Document()
                 .append("id", id)
                 .append("login", login)
                 .append("currency", currency.toString());
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public Currency getCurrency() {
-        return currency;
     }
 
     @Override

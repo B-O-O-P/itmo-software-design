@@ -1,7 +1,12 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import org.bson.Document;
 
+@Data
+@AllArgsConstructor
 public class Product {
     private final long id;
     private final String name;
@@ -17,13 +22,6 @@ public class Product {
         );
     }
 
-    public Product(long id, String name, Currency currency, double price) {
-        this.id = id;
-        this.name = name;
-        this.currency = currency;
-        this.price = price;
-    }
-
     public Document toDocument() {
         return new Document()
                 .append("id", id)
@@ -33,19 +31,7 @@ public class Product {
     }
 
     public Product convertCurrency(Currency otherCurrency) {
-        return new Product(id, name, otherCurrency, price * currency.getMultiplier(otherCurrency));
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getPrice() {
-        return price;
+        return new Product(id, name, otherCurrency, price * currency.getCourse(otherCurrency));
     }
 
     @Override
