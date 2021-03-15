@@ -7,12 +7,10 @@ public enum Currency {
 
     private double getMultiplier() {
         switch (this) {
-            case USD:
-                return 1;
             case EUR:
-                return 0.94;
+                return 0.84;
             case RUB:
-                return 78.04;
+                return 73.12;
             default:
                 return 1;
         }
