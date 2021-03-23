@@ -2,6 +2,7 @@ package model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import org.bson.Document;
 
 @Data

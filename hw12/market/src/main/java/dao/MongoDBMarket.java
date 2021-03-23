@@ -3,10 +3,13 @@ package dao;
 import com.mongodb.client.model.Filters;
 import com.mongodb.rx.client.MongoCollection;
 import com.mongodb.rx.client.Success;
-import model.Stocks;
+
 import org.bson.Document;
+
 import rx.Observable;
 import rx.functions.Func2;
+
+import model.Stocks;
 
 public class MongoDBMarket implements Market {
     private final MongoCollection<Document> companies;

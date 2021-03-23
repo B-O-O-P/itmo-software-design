@@ -1,9 +1,10 @@
-
 package dao;
 
 import com.mongodb.rx.client.Success;
-import model.Stocks;
+
 import rx.Observable;
+
+import model.Stocks;
 
 public interface Market {
     Observable<Success> addCompany(String name, int stocksCount, int stocksPrice);

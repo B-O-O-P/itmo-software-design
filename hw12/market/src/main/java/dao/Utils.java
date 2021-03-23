@@ -4,6 +4,7 @@ import com.mongodb.rx.client.MongoClient;
 import com.mongodb.rx.client.MongoClients;
 import com.mongodb.rx.client.MongoCollection;
 import com.mongodb.rx.client.MongoDatabase;
+
 import org.bson.Document;
 
 public class Utils {

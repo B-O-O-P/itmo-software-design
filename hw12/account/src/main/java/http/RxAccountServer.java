@@ -1,8 +1,9 @@
 package http;
 
-import dao.Account;
 import io.reactivex.netty.protocol.http.server.HttpServerRequest;
+
 import lombok.AllArgsConstructor;
+
 import rx.Observable;
 
 import java.util.Arrays;
@@ -11,6 +12,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 import static utils.HttpRequest.*;
+
+import dao.Account;
 
 @AllArgsConstructor
 public class RxAccountServer {

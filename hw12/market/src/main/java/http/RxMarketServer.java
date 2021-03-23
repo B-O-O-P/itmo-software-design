@@ -1,8 +1,9 @@
 package http;
 
 import io.reactivex.netty.protocol.http.server.HttpServerRequest;
-import dao.Market;
-import model.Stocks;
+
+import lombok.AllArgsConstructor;
+
 import rx.Observable;
 
 import java.util.Arrays;
@@ -12,12 +13,13 @@ import java.util.Optional;
 
 import static utils.HttpRequest.*;
 
-public class RxMarketServer {
-    private final Market dao;
+import dao.Market;
 
-    public RxMarketServer(Market dao) {
-        this.dao = dao;
-    }
+import model.Stocks;
+
+@AllArgsConstructor
+public class RxMarketServer {
+    private final Market market;
 
     public <T> Observable<String> getResponse(HttpServerRequest<T> request) {
         String path = request.getDecodedPath().substring(1);
@@ -54,11 +56,11 @@ public class RxMarketServer {
         String name = getQueryParam(request, "name");
         int stocksCount = getIntParam(request, "stocks_count");
         int stocksPrice = getIntParam(request, "stocks_price");
-        return dao.addCompany(name, stocksCount, stocksPrice).map(Objects::toString).onErrorReturn(Throwable::getMessage);
+        return market.addCompany(name, stocksCount, stocksPrice).map(Objects::toString).onErrorReturn(Throwable::getMessage);
     }
 
     private <T> Observable<String> getCompanies(HttpServerRequest<T> request) {
-        return dao.getCompanies().map(Objects::toString).reduce("", (s1, s2) -> s1 + ",\n" + s2);
+        return market.getCompanies().map(Objects::toString).reduce("", (s1, s2) -> s1 + ",\n" + s2);
     }
 
     private <T> Observable<String> addStocks(HttpServerRequest<T> request) {
@@ -69,7 +71,7 @@ public class RxMarketServer {
 
         String companyName = getQueryParam(request, "company_name");
         int stocksCount = getIntParam(request, "count");
-        return dao.addStocks(companyName, stocksCount).map(Objects::toString).onErrorReturn(Throwable::getMessage);
+        return market.addStocks(companyName, stocksCount).map(Objects::toString).onErrorReturn(Throwable::getMessage);
     }
 
     private <T> Observable<String> buyStocks(HttpServerRequest<T> request) {
@@ -80,7 +82,7 @@ public class RxMarketServer {
 
         String companyName = getQueryParam(request, "company_name");
         int count = getIntParam(request, "count");
-        return dao.buyStocks(companyName, count).map(Objects::toString).onErrorReturn(Throwable::getMessage);
+        return market.buyStocks(companyName, count).map(Objects::toString).onErrorReturn(Throwable::getMessage);
     }
 
     private <T> Observable<String> getStocksPrice(HttpServerRequest<T> request) {
@@ -90,7 +92,7 @@ public class RxMarketServer {
         }
 
         String companyName = getQueryParam(request, "company_name");
-        return dao.getStocksInfo(companyName).map(Stocks::getPrice).map(Objects::toString).onErrorReturn(Throwable::getMessage);
+        return market.getStocksInfo(companyName).map(Stocks::getPrice).map(Objects::toString).onErrorReturn(Throwable::getMessage);
     }
 
     private <T> Observable<String> getStocksCount(HttpServerRequest<T> request) {
@@ -100,7 +102,7 @@ public class RxMarketServer {
         }
 
         String companyName = getQueryParam(request, "company_name");
-        return dao.getStocksInfo(companyName).map(Stocks::getCount).map(Objects::toString).onErrorReturn(Throwable::getMessage);
+        return market.getStocksInfo(companyName).map(Stocks::getCount).map(Objects::toString).onErrorReturn(Throwable::getMessage);
     }
 
     private <T> Observable<String> changeStocksPrice(HttpServerRequest<T> request) {
@@ -111,6 +113,6 @@ public class RxMarketServer {
 
         String companyName = getQueryParam(request, "company_name");
         int newStocksPrice = getIntParam(request, "new_stocks_price");
-        return dao.changeStocksPrice(companyName, newStocksPrice).map(Objects::toString).onErrorReturn(Throwable::getMessage);
+        return market.changeStocksPrice(companyName, newStocksPrice).map(Objects::toString).onErrorReturn(Throwable::getMessage);
     }
 }
